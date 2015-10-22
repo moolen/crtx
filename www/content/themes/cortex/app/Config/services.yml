@@ -1,0 +1,7 @@
+services:
+    app.my_service:
+        class: App\Service\MyService
+    app.service_controller:
+        class: App\Controller\ServiceController
+        arguments:
+        - "@app.my_service"

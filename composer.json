@@ -1,0 +1,27 @@
+{
+    "name": "moolen/wordpress-cortex",
+    "config": {
+        "vendor-dir": "www/content/themes/cortex/vendor"
+    },
+    "authors": [
+        {
+            "name": "Moritz Beller",
+            "email": "beller.moritz@googlemail.com"
+        }
+    ],
+    "require": {
+        "johnpbloch/wordpress": "^4.2",
+        "symfony/symfony": "^2.7",
+        "monolog/monolog": "^1.15",
+        "twig/twig": "^1.19"
+    },
+    "extra": {
+        "wordpress-install-dir": "www/wp"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "www/content/themes/cortex/app",
+            "Cortex\\": "www/content/themes/cortex/cortex/src"
+        }
+    }
+}

@@ -1,0 +1,46 @@
+#  Explicit routes
+#  these will match a url explicitly
+explicit:
+
+  # explicitly matches /foo/bar/baz
+  my_explicit_route:
+    path: /foo/bar/baz
+    controller: App\Controller\ExplicitController::handleRequest
+
+  # use service to handle a request
+  my_service_route:
+    path: /service/baz
+    controller: @app.service_controller::handleRequest
+
+  # mandatory: 404 route
+  not_found:
+    controller: App\Controller\NotFoundController::handleRequest
+
+  # mandatory: exception
+  exception:
+    controller: App\Controller\ExceptionController::handleRequest
+
+#  Conditional routes
+#  these are matched by the wordpress context
+conditional:
+
+  # only home is matched
+  my_home_route:
+    conditions:
+      home: true
+    controller: App\Controller\HomeController::handleRequest
+
+  #  all pages are matched
+  all_pages_route:
+    conditions:
+      page: true
+    controller: App\Controller\PageController::allPages
+
+  #  only page "other-page", 97 and 53 are matched
+  special_page_route:
+    conditions:
+      page:
+        - "other-page"
+        - 97
+        - 53
+    controller: App\Controller\PageController::specialPage

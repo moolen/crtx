@@ -1,0 +1,86 @@
+#
+#  LOGGING
+#
+log:
+    handlers:
+        #
+        # default error handler
+        #  - only level & path defined
+        #  - no class or factory
+        #
+        MyErrorLogHandler:
+            level: error
+            path: Log/error.log
+        #
+        # custom error handler:
+        # 
+        # @see App\Util\CustomLogger for implementation & interfaces
+        # 
+        #
+        MyCustomErrorLogHandler:
+            level: debug
+            class: App\Util\CustomLogger
+        #
+        # 
+        #
+        MyCustomFactoryLogHandler:
+            level: error
+            factory: [App\Util\LoggerFactory, createCustomLogger]
+
+#
+#  POST TYPES
+#
+post_types:
+    # post-type name as key
+    book:
+        # arguments for post-type
+        # ref: https://codex.wordpress.org/Function_Reference/register_post_type
+        public: true
+        labels:
+            name: __('CYKA', 'my-domain')
+#
+#  TAXONOMIES
+#
+taxonomies:
+    #
+    # custom taxonomy
+    # with name 'othertax'
+    # 
+    # type defines the post-types that are associated with this taxonomy
+    # 
+    # the rest is documented here: https://codex.wordpress.org/Function_Reference/register_taxonomy
+    #
+    othertax:
+        type: [post, book]
+        label: MyTax
+        labels:
+            name: 'MyTax Label Name'
+            singular_name: 'singular_name'
+            menu_name: 'menu_name'
+            all_items: 'all_items'
+            edit_item: 'edit_item'
+            view_item: 'view_item'
+            add_new_item: 'add_new_item'
+            new_item_name: 'new_item_name'
+            parent_item: 'parent_item'
+            search_items: 'search_items'
+        public: true
+        show_ui: true
+        show_in_menu: true
+        show_in_nav_menus: true
+        hierarchical: false
+
+#
+#  TEMPLATES
+#
+templating:
+    flex:
+        flex1:
+            template: Flex/flex1.twig
+        flex2:
+            template: Flex/flex2.twig
+        flex3:
+            class: App\Model\TestModel
+            template: Flex/flex3.twig
+        nested_flex_layout:
+            template: Flex/nested_flex_layout.twig

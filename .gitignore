@@ -1,0 +1,8 @@
+www/wp
+wp-config.php
+www/content/uploads/*
+www/content/upgrade/*
+www/content/plugins/*
+www/content/themes/cortex/vendor
+www/content/themes/cortex/app/Cache/*
+www/content/themes/cortex/app/Log/*

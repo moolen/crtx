@@ -1,0 +1,13 @@
+<h3>flex3</h3>
+<h5>Nested flex:</h5>
+
+
+
+{# either flex-rendering like this #}
+{% for field in field.nested_flex %}
+	{{ field | field("nested_flex_layout") }}
+{% endfor %}
+
+
+{# or #}
+{{ field.nested_flex | flex}}
